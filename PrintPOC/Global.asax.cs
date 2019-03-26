@@ -16,6 +16,9 @@ namespace PrintPOC
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            string _path = $"{Environment.GetEnvironmentVariable("PATH")};{System.Web.Hosting.HostingEnvironment.MapPath("~/bin/x64")};{System.Web.Hosting.HostingEnvironment.MapPath("~/bin/x86")};";
+            Environment.SetEnvironmentVariable("PATH", _path, EnvironmentVariableTarget.Process);
         }
     }
 }
